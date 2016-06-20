@@ -75,6 +75,7 @@ def main():
         for mc in mastercards:
             print u"compute master card:", mc[u'name'].encode('utf-8'), u"--"
 
+            prefix = mc[u'url']
             # if not exists in slave
             sc = cardexists(mc, slavecards, prefix)
             if sc is None:
