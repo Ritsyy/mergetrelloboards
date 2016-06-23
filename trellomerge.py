@@ -32,10 +32,12 @@ def cardexists(card, cardlist, prefix):
 
 
 def main():
-
     slavedao = TrelloBoardDAO(conf[u'appkey'], conf[u'token'], conf[u'slaveboard'])
     masterdao = TrelloBoardDAO(conf[u'appkey'], conf[u'token'], conf[u'masterboard'])
-    prefix = u'[kr]'
+
+    masterBoardName = masterdao.getBoardName()
+    prefix = ''.join(["[", masterBoardName, "]", " "])
+    # description =
 
     # get master lists
     masterlists = masterdao.getLists()
@@ -75,7 +77,6 @@ def main():
         for mc in mastercards:
             print u"compute master card:", mc[u'name'].encode('utf-8'), u"--"
 
-            prefix = mc[u'url']
             # if not exists in slave
             sc = cardexists(mc, slavecards, prefix)
             if sc is None:

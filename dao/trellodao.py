@@ -19,6 +19,31 @@ class TrelloBoardDAO(object):
         self._appkey = appkey
         self._boardid = boardid
 
+    def getBoardName(self, verbose=None):
+        res = None
+        # get boardName
+        url = ''.join(['https://api.trello.com/1/boards/',
+                       self._boardid,
+                       '?lists=open&list_fields=name&fields=name,desc&key=',
+                       self._appkey,
+                       '&token=',
+                       self._token])
+        r = requests.get(url)
+
+        if verbose:
+            print url
+            print json.dumps(r.json(), sort_keys=True, indent=4)
+
+        if r.status_code != 200:
+            print "GENERAL ERROR unable to fetch board Name:" + str(r.status_code) + r.text + u'\n'
+            raise Exception("getBoardName:" + str(r.status_code))
+        else:
+            res = r.json()
+
+        boardName = res[u'name'].encode('utf-8')
+        return boardName
+
+
     def getLists(self, verbose=None):
         res = None
         # get all lists
