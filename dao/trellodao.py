@@ -321,14 +321,14 @@ class TrelloBoardDAO(object):
             print json.dumps(r.json(), sort_keys=True, indent=4)
         return res
 
-    def copyCardToList(self, card, listid, prefix, verbose=None):
+    def copyCardToList(self, card, listid, prefix, description, verbose=None):
         res = None
-        res = self.copyCardIdToList(card['id'], listid, prefix, verbose)
+        res = self.copyCardIdToList(card['id'], listid, prefix, description, verbose)
         if card['due'] != 'null':
             res = self.setDueDate(res, card['due'])
         return res
 
-    def copyCardIdToList(self, cardid, listid, prefix, verbose=None):
+    def copyCardIdToList(self, cardid, listid, prefix, description, verbose=None):
         res = None
 
         url = ''.join(['https://api.trello.com/1/cards',
@@ -343,7 +343,9 @@ class TrelloBoardDAO(object):
                        '&urlSource=',
                        'null',
                        '&idCardSource=',
-                       cardid])
+                       cardid,
+                       '&desc=',
+                       description])
         r = requests.post(url)
 
         if r.status_code != 200:

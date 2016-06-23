@@ -76,6 +76,7 @@ def main():
         slavecards = slavedao.getOpenCards(slavelist[u'id'])
         for mc in mastercards:
             print u"compute master card:", mc[u'name'].encode('utf-8'), u"--"
+            description = "Master Card Url: " + mc[u'url']
 
             # if not exists in slave
             sc = cardexists(mc, slavecards, prefix)
@@ -83,7 +84,7 @@ def main():
                 print u"** ", mc[u'name'].encode('utf-8'), u"does not exist in slave board"
 
                 # create it
-                sc = slavedao.copyCardToList(mc, slavelist[u'id'], prefix)
+                sc = slavedao.copyCardToList(mc, slavelist[u'id'], prefix, description)
                 print u"** ", mc[u'name'].encode('utf-8'), u"is now created in slave board"
             # if exists in slave
             else:
