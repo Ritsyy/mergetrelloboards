@@ -76,7 +76,7 @@ def main():
         slavecards = slavedao.getOpenCards(slavelist[u'id'])
         for mc in mastercards:
             print u"compute master card:", mc[u'name'].encode('utf-8'), u"--"
-            description = "Master Card Url: " + mc[u'url']
+            description = mc[u'desc'] + "\n" + "Master Card Url: " + mc[u'url']
 
             # if not exists in slave
             sc = cardexists(mc, slavecards, prefix)
