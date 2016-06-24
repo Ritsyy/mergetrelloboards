@@ -33,8 +33,11 @@ def cardexists(card, cardlist, prefix):
 
 def main():
     slavedao = TrelloBoardDAO(conf[u'appkey'], conf[u'token'], conf[u'slaveboard'])
-    masterdao = TrelloBoardDAO(conf[u'appkey'], conf[u'token'], conf[u'masterboard'])
+    for masterboard in conf['masterboards']:
+        masterdao = TrelloBoardDAO(conf[u'appkey'], conf[u'token'], masterboard)
+        TrelloMerge(masterdao, slavedao)
 
+def TrelloMerge(masterdao, slavedao):
     masterBoardName = masterdao.getBoardName()
     prefix = ''.join(["[", masterBoardName, "]", " "])
     # description =

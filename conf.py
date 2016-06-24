@@ -1,19 +1,21 @@
 from collections import OrderedDict
+import sys, getopt, argparse
 
 # ########### GLOBAL CONFIGURATION ############
 
 # appkey and token (see trello api doc to get yours)
 
 # CHANGE THIS !!!!! (otherwise you will see my fantastic TodoList)
-appkey = u'64842214ed1b16224ee8742f8db14aoh'
-secret = u'a2f1445f1bf434bc8a551308ddb26fdd5a2c1a4b520231156cb0ff55aef46ac2'
-token = u'156a31cab6a59a86345ce34f283e9546506d859a7b21b0caf8d9e47ead75aed'
+
+appkey = u'baef042af8a9bfc88ffe0227038bdb5a'
+secret = u'730d8cff5ae8c5dcff5ec9d79ace2bce6cef6fb7d716db9777fc08acea9058be'
+token = u'e973c0dd6fb7636c8325eac7010da5e1f8b4de535c17f4170bade04d9c3536e9'
 
 # ########### trello2txt CONFIGURATION ############
 
 # Board id (see Trello url)
 # CHANGE THIS !!!!!
-board = u'GKibRtoN'
+board = u'zBZT2VLZ'
 
 # Possible behaviour
 BY_COLOR = 0
@@ -42,12 +44,12 @@ COLOR_TO_DISPLAY['orange'] = ""
 
 # ########### trellomerge CONFIGURATION ############
 
-masterboard = u'y79lF0eI'
-slaveboard = u'yh8jqhba'
-testboard = u'HCqmI3Sb'
+masterboards = ['zBZT2VLZ', 'dKMNdKhT', '5noZ6YXd']
+slaveboard = u'dn2IAOP1'
+testboard = u'dn2IAOP1'
 
 # prefix to add to cards copied from the master list
-slavecardsprefix = '[kr] '
+# slavecardsprefix = '[kr] '
 
 # theses slave lists will be sorted by due date and not by priority [default behaviour]
 orderbyduedate = ['Calendar']
