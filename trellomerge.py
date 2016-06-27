@@ -32,9 +32,9 @@ def cardexists(card, cardlist, prefix):
 
 
 def main():
-    slavedao = TrelloBoardDAO(conf[u'appkey'], conf[u'token'], conf[u'slaveboard'])
+    slavedao = TrelloBoardDAO(args.appkey, args.token, conf[u'slaveboard'])
     for masterboard in conf['masterboards']:
-        masterdao = TrelloBoardDAO(conf[u'appkey'], conf[u'token'], masterboard)
+        masterdao = TrelloBoardDAO(args.appkey, args.token, masterboard)
         TrelloMerge(masterdao, slavedao)
 
 def TrelloMerge(masterdao, slavedao):
@@ -137,6 +137,8 @@ def TrelloMerge(masterdao, slavedao):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=("synchronize 2 trello boards "))
     parser.add_argument('conf', help='configuration file', type=str)
+    parser.add_argument('appkey', help='auth', type=str)
+    parser.add_argument('token', help='auth', type=str)
     args = parser.parse_args()
     shouldquit = False
 
