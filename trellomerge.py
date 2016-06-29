@@ -124,14 +124,14 @@ def TrelloMerge(masterdao, slavedao):
                     print "* ", sc['name'].encode('utf-8'), "has been deleted"
 
         # reordrer cards
-        print "* reorder cards:", sl['name'].encode('utf-8')
-        priority = ['green', 'yellow', 'orange', 'red']
-        tu = TrelloUtils(slavedao)
-        if sl['name'] in conf['orderbyduedate']:
-            tu.reorderListByDueDate(sl['id'])
-            tu.redSoonDueDate(sl['id'])
-        else:
-            tu.reorderListByPriority(sl['id'], priority)
+        # print "* reorder cards:", sl['name'].encode('utf-8')
+        # priority = ['green', 'yellow', 'orange', 'red']
+        # tu = TrelloUtils(slavedao)
+        # if sl['name'] in conf['orderbyduedate']:
+        #     tu.reorderListByDueDate(sl['id'])
+        #     tu.redSoonDueDate(sl['id'])
+        # else:
+        #     tu.reorderListByPriority(sl['id'], priority)
 
 
 if __name__ == "__main__":
