@@ -321,14 +321,14 @@ class TrelloBoardDAO(object):
             print json.dumps(r.json(), sort_keys=True, indent=4)
         return res
 
-    def copyCardToList(self, card, listid, prefix, description, verbose=None):
+    def copyCardToList(self, card, listid, prefix, description, masterBoardId, verbose=None):
         res = None
-        res = self.copyCardIdToList(card['id'], listid, prefix, description, verbose)
+        res = self.copyCardIdToList(card['id'], listid, prefix, description, masterBoardId, verbose)
         if card['due'] != 'null':
             res = self.setDueDate(res, card['due'])
         return res
 
-    def copyCardIdToList(self, cardid, listid, prefix, description, verbose=None):
+    def copyCardIdToList(self, cardid, listid, prefix, description, masterBoardId, verbose=None):
         res = None
 
         url = ''.join(['https://api.trello.com/1/cards',
@@ -357,6 +357,20 @@ class TrelloBoardDAO(object):
             print json.dumps(r.json(), sort_keys=True, indent=4)
 
         newcard = r.json()
+
+        board_colors = {'MHDVMYyz': 'red','yugU3B6P': 'pink', 'Swk9BQBM': 'green', 'v1ScRAKq': 'blue', 'TjR2jnBP': 'orange', 'zsUN741N': 'yellow', 'iZyf0GjK': 'purple', '786lfaUx': 'grey', 'jM3pHWXo': 'black', 'rSUVxNt5': 'pink', 'Yr94hDJG': 'blue', 'R4DMPMwy': 'green'}
+        labelurl = ''.join(['https://api.trello.com/1/cards/',
+                       newcard['id'],
+                       '/labels',
+                       '?&key=',
+                       self._appkey,
+                       '&token=',
+                       self._token,
+                       '&color=',
+                       board_colors[masterBoardId],
+                       '&name=',
+                       prefix])
+        resUrl = requests.post(labelurl)
 
         labelurl = ''.join(['https://api.trello.com/1/cards/',
                        newcard['id'],

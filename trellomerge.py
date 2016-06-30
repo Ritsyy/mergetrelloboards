@@ -39,8 +39,8 @@ def main():
 
 def TrelloMerge(masterdao, slavedao):
     masterBoardName = masterdao.getBoardName()
+    masterBoardId = masterdao._boardid
     prefix = ''.join(["[", masterBoardName, "]", " "])
-    # description =
 
     # get master lists
     masterlists = masterdao.getLists()
@@ -87,7 +87,7 @@ def TrelloMerge(masterdao, slavedao):
                 print u"** ", mc[u'name'].encode('utf-8'), u"does not exist in slave board"
 
                 # create it
-                sc = slavedao.copyCardToList(mc, slavelist[u'id'], prefix, description)
+                sc = slavedao.copyCardToList(mc, slavelist[u'id'], prefix, description, masterBoardId)
                 print u"** ", mc[u'name'].encode('utf-8'), u"is now created in slave board"
             # if exists in slave
             else:
@@ -101,7 +101,7 @@ def TrelloMerge(masterdao, slavedao):
                     slavedao.deleteCard(sc['id'])
                     print "** ", mc['name'].encode('utf-8'), "has been deleted"
                     # recreate it
-                    sc = slavedao.copyCardToList(mc, slavelist['id'], prefix)
+                    sc = slavedao.copyCardToList(mc, slavelist['id'], prefix, masterBoardId)
                     print "** ", mc['name'].encode('utf-8'), "has been recreated"
 
             syncslavecards.append(sc['id'])

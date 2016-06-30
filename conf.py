@@ -11,7 +11,7 @@ import sys, getopt, argparse
 
 # Board id (see Trello url)
 # CHANGE THIS !!!!!
-board = u'2JKJH39o'
+board = u'MHDVMYyz'
 
 # Possible behaviour
 BY_COLOR = 0
@@ -40,9 +40,9 @@ COLOR_TO_DISPLAY['orange'] = ""
 
 # ########### trellomerge CONFIGURATION ############
 
-masterboards = ['2JKJH39o','VAZQS7ox', 'bMjOVHAj']
-slaveboard = u'az5xjnnO'
-testboard = u'az5xjnnO'
+masterboards = ['MHDVMYyz','yugU3B6P', 'Swk9BQBM', 'v1ScRAKq', 'TjR2jnBP', 'zsUN741N', 'iZyf0GjK', '786lfaUx', 'jM3pHWXo', 'rSUVxNt5', 'Yr94hDJG', 'R4DMPMwy']
+slaveboard = u'e2n3iU6h'
+testboard = u'e2n3iU6h'
 
 # prefix to add to cards copied from the master list
 # slavecardsprefix = '[kr] '
