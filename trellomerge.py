@@ -48,6 +48,7 @@ def TrelloMerge(masterdao, slavedao):
 
     # create (or reopen) list in slave if not exists
     slavelists = slavedao.getLists()
+    time.sleep(2)
     # cards that have been synced while computing masterlist
     syncslavecards = []
 
