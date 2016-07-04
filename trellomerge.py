@@ -7,6 +7,7 @@ import sys
 # from collections import OrderedDict
 import argparse
 import os
+import time
 from dao.trellodao import TrelloBoardDAO
 from objects.trelloutils import TrelloUtils
 
@@ -47,7 +48,7 @@ def TrelloMerge(masterdao, slavedao):
 
     # create (or reopen) list in slave if not exists
     slavelists = slavedao.getLists()
-
+    time.sleep(5)
     # cards that have been synced while computing masterlist
     syncslavecards = []
 
@@ -103,7 +104,7 @@ def TrelloMerge(masterdao, slavedao):
                     # recreate it
                     sc = slavedao.copyCardToList(mc, slavelist['id'], prefix, masterBoardId)
                     print "** ", mc['name'].encode('utf-8'), "has been recreated"
-
+            time.sleep(5)
             syncslavecards.append(sc['id'])
 
     print "******** sync ok: ", str(syncslavecards)
