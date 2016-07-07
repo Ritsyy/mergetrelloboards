@@ -372,18 +372,6 @@ class TrelloBoardDAO(object):
                        prefix])
         resUrl = requests.post(labelurl)
 
-        labelurl = ''.join(['https://api.trello.com/1/cards/',
-                       newcard['id'],
-                       '/labels',
-                       '?&key=',
-                       self._appkey,
-                       '&token=',
-                       self._token,
-                       '&color=green',
-                       '&name=',
-                       prefix])
-        rurl = requests.post(labelurl)
-
         # rename card
         url = ''.join(['https://api.trello.com/1/cards/',
                        newcard['id'],
