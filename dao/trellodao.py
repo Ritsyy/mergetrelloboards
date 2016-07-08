@@ -358,7 +358,7 @@ class TrelloBoardDAO(object):
 
         newcard = r.json()
 
-        board_colors = {'MHDVMYyz': 'red','yugU3B6P': 'pink', 'Swk9BQBM': 'green', 'v1ScRAKq': 'blue', 'TjR2jnBP': 'orange', 'zsUN741N': 'yellow', 'iZyf0GjK': 'purple', '786lfaUx': 'grey', 'jM3pHWXo': 'black', 'rSUVxNt5': 'pink', 'Yr94hDJG': 'blue', 'R4DMPMwy': 'green'}
+        board_colors = {'MHDVMYyz': 'red','yugU3B6P': 'blue', 'Swk9BQBM': 'green', 'v1ScRAKq': 'blue', 'TjR2jnBP': 'orange', 'zsUN741N': 'yellow', 'iZyf0GjK': 'purple', '786lfaUx': 'orange', 'jM3pHWXo': 'red', 'rSUVxNt5': 'blue', 'Yr94hDJG': 'blue', 'R4DMPMwy': 'green'}
         labelurl = ''.join(['https://api.trello.com/1/cards/',
                        newcard['id'],
                        '/labels',
