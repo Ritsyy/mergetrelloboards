@@ -3,6 +3,7 @@
 from __future__ import unicode_literals
 import requests
 import json
+import urllib
 
 # A trello mapper
 
@@ -330,7 +331,6 @@ class TrelloBoardDAO(object):
 
     def copyCardIdToList(self, cardid, listid, prefix, description, masterBoardId, verbose=None):
         res = None
-
         url = ''.join(['https://api.trello.com/1/cards',
                        '?&key=',
                        self._appkey,
@@ -345,7 +345,7 @@ class TrelloBoardDAO(object):
                        '&idCardSource=',
                        cardid,
                        '&desc=',
-                       description])
+                       urllib.quote(description)])
         r = requests.post(url)
 
         if r.status_code != 200:
