@@ -40,7 +40,7 @@ COLOR_TO_DISPLAY['orange'] = ""
 
 # ########### trellomerge CONFIGURATION ############
 
-masterboards = ['MHDVMYyz','yugU3B6P', 'Swk9BQBM', 'v1ScRAKq', 'TjR2jnBP', 'zsUN741N', 'iZyf0GjK', '786lfaUx', 'rSUVxNt5', 'Yr94hDJG']
+masterboards = ['MHDVMYyz', 'yugU3B6P', 'Swk9BQBM', 'v1ScRAKq', 'TjR2jnBP', 'zsUN741N', 'iZyf0GjK', '786lfaUx', 'rSUVxNt5', 'Yr94hDJG']
 slaveboard = u'e2n3iU6h'
 testboard = u'e2n3iU6h'
 

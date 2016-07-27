@@ -345,7 +345,7 @@ class TrelloBoardDAO(object):
                        '&idCardSource=',
                        cardid,
                        '&desc=',
-                       urllib.quote(description)])
+                       urllib.quote(description.encode('ascii', 'ignore'))])
         r = requests.post(url)
 
         if r.status_code != 200:
