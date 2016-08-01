@@ -102,7 +102,7 @@ def TrelloMerge(masterdao, slavedao):
                     slavedao.deleteCard(sc['id'])
                     print "** ", mc['name'].encode('utf-8'), "has been deleted"
                     # recreate it
-                    sc = slavedao.copyCardToList(mc, slavelist['id'], prefix, masterBoardId)
+                    sc = slavedao.copyCardToList(mc, slavelist['id'], prefix, description, masterBoardId)
                     print "** ", mc['name'].encode('utf-8'), "has been recreated"
             time.sleep(2)
             syncslavecards.append(sc['id'])
